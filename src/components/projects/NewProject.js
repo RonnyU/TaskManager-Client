@@ -5,7 +5,8 @@ const NewProject = () => {
   // State del formulario
 
   const projectsContext = useContext(projectContext);
-  const { form, displayForm } = projectsContext;
+  const { form, displayForm, formerror, addProject, displayFormError } =
+    projectsContext;
 
   const [project, setProject] = useState({
     name: '',
@@ -23,6 +24,16 @@ const NewProject = () => {
   // Cuando el usuario envia un project
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (name === '') {
+      displayFormError();
+      return;
+    }
+    addProject(project);
+    //reset form
+    setProject({
+      name: '',
+    });
   };
 
   return (
@@ -53,6 +64,7 @@ const NewProject = () => {
           />
         </form>
       ) : null}
+      {formerror ? <p className='mensaje error'>Name is required</p> : null}
     </Fragment>
   );
 };

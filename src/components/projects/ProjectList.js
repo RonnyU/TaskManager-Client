@@ -11,13 +11,14 @@ const ProjectList = () => {
     console.log(getProjects());
   }, []);
 
-  if (projects.length === 0) return null;
+  if (projects.length === 0)
+    return <p>There is no projects to display, create one to start</p>;
 
   return (
     <div>
       <ul className='listado-proyectos'>
         {projects.map((project, index) => (
-          <Project key={index} project={project} />
+          <Project key={project.id} project={project} />
         ))}
       </ul>
     </div>
