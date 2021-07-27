@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import taskContext from '../../context/tasks/taskContext';
 import projectContext from '../../context/projects/projectContext';
 
@@ -7,16 +7,35 @@ const TaskForm = () => {
   const { project } = projectsContext;
 
   const tasksContext = useContext(taskContext);
-  const { taskerror, getTasks, addTask, checkTaskForm } = tasksContext;
+  const {
+    taskerror,
+    taskselected,
+    getTasks,
+    addTask,
+    checkTaskForm,
+    updateTask,
+    cleanTask,
+  } = tasksContext;
 
   //States
   const [task, setTask] = useState({
     name: '',
   });
 
+  useEffect(() => {
+    if (taskselected !== null) {
+      setTask(taskselected);
+    } else {
+      setTask({
+        name: '',
+      });
+    }
+  }, [taskselected]);
+
   const { name } = task;
 
   if (!project) return null;
+
   const [currentProject] = project;
 
   const handleChange = (e) => {
@@ -33,16 +52,24 @@ const TaskForm = () => {
       checkTaskForm();
       return;
     }
-    task.projectId = currentProject.id;
-    task.status = false;
-    //console.log(task);
-    addTask(task);
+
+    if (taskselected === null) {
+      task.projectId = currentProject.id;
+      task.status = false;
+      console.log('ADDIND');
+      addTask(task);
+    } else {
+      updateTask(task);
+      cleanTask();
+    }
+
     getTasks(currentProject.id);
 
     setTask({
       name: '',
     });
   };
+
   return (
     <div className='formulario'>
       <form onSubmit={handleSubmit}>
@@ -60,7 +87,7 @@ const TaskForm = () => {
           <input
             type='submit'
             className='btn btn-primario btn-submit btn-block'
-            value='Add task'
+            value={taskselected ? 'Edit task' : 'Add task'}
           />
         </div>
       </form>

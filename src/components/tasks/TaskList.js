@@ -2,6 +2,7 @@ import React, { Fragment, useContext } from 'react';
 import Task from './Task';
 import projectContext from '../../context/projects/projectContext';
 import taskContext from '../../context/tasks/taskContext';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 const TaskList = () => {
   const projectsContext = useContext(projectContext);
@@ -10,6 +11,7 @@ const TaskList = () => {
   const tasksContext = useContext(taskContext);
   const { projecttasks } = tasksContext;
 
+  const nodeRef = React.useRef(null);
   if (!project) return <h2>Select a project</h2>;
   /*
     usar array destructuring para extraer la primer posicion
@@ -31,7 +33,18 @@ const TaskList = () => {
             <p>No task to display</p>
           </li>
         ) : (
-          projecttasks.map((task) => <Task task={task} />)
+          <TransitionGroup>
+            {projecttasks.map((task) => (
+              <CSSTransition
+                key={task.id}
+                nodeRef={nodeRef}
+                timeout={200}
+                classNames='tarea'
+              >
+                <Task ref={nodeRef} task={task} />
+              </CSSTransition>
+            ))}
+          </TransitionGroup>
         )}
       </ul>
       <button type='button' className='btn btn-eliminar' onClick={handleDelete}>

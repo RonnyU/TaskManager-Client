@@ -1,14 +1,18 @@
 import React, { useContext, useEffect } from 'react';
 import Project from './Project';
 import projectContext from '../../context/projects/projectContext';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 const ProjectList = () => {
   //extraer projectos del state inicial
   const projectsContext = useContext(projectContext);
   const { projects, getProjects } = projectsContext;
 
+  const nodeRef = React.useRef(null);
+
   useEffect(() => {
-    console.log(getProjects());
+    getProjects();
+    //eslint-disable-next-line
   }, []);
 
   if (projects.length === 0)
@@ -17,9 +21,18 @@ const ProjectList = () => {
   return (
     <div>
       <ul className='listado-proyectos'>
-        {projects.map((project, index) => (
-          <Project key={project.id} project={project} />
-        ))}
+        <TransitionGroup>
+          {projects.map((project) => (
+            <CSSTransition
+              key={project.id}
+              nodeRef={nodeRef}
+              timeout={200}
+              classNames='proyecto'
+            >
+              <Project ref={nodeRef} project={project} />
+            </CSSTransition>
+          ))}
+        </TransitionGroup>
       </ul>
     </div>
   );

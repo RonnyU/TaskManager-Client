@@ -39,7 +39,6 @@ const ProjectState = (props) => {
   //obtenerProyectos
 
   const getProjects = () => {
-    console.log('get');
     dispatch({
       type: GET_PROJECTS,
       payload: projects,
