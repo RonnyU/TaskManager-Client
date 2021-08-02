@@ -128,7 +128,7 @@ const NewAccount = (props) => {
             />
           </div>
         </form>
-        <Link to='/new-account' className='enlace-cuenta'>
+        <Link to='/' className='enlace-cuenta'>
           Sign In
         </Link>
       </div>
