@@ -22,7 +22,7 @@ const TaskList = () => {
   const [currentProject] = project;
 
   const handleDelete = () => {
-    deleteProject(currentProject.id);
+    deleteProject(currentProject._id);
   };
   return (
     <Fragment>
@@ -36,7 +36,7 @@ const TaskList = () => {
           <TransitionGroup>
             {projecttasks.map((task) => (
               <CSSTransition
-                key={task.id}
+                key={task._id}
                 nodeRef={nodeRef}
                 timeout={200}
                 classNames='tarea'

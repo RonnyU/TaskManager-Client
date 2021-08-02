@@ -54,16 +54,15 @@ const TaskForm = () => {
     }
 
     if (taskselected === null) {
-      task.projectId = currentProject.id;
-      task.status = false;
-      console.log('ADDIND');
+      task.project = currentProject._id;
+      //console.log('ADDIND');
       addTask(task);
     } else {
       updateTask(task);
       cleanTask();
     }
 
-    getTasks(currentProject.id);
+    getTasks(currentProject._id);
 
     setTask({
       name: '',
