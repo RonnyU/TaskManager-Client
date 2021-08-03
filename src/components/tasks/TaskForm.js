@@ -91,7 +91,7 @@ const TaskForm = () => {
         </div>
       </form>
       {taskerror ? (
-        <p className='mensaje error'>Task name is required</p>
+        <p className='message error'>Task name is required</p>
       ) : null}
     </div>
   );

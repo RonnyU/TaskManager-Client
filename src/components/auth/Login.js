@@ -45,7 +45,7 @@ const Login = (props) => {
   };
 
   return (
-    <div className='form-usuario'>
+    <div className='user-form'>
       {alert ? (
         <div className={`alerta ${alert.category}`}>{alert.msg}</div>
       ) : null}

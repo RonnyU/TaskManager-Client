@@ -27,7 +27,7 @@ const ProjectList = () => {
 
   return (
     <div>
-      <ul className='listado-proyectos'>
+      <ul className='project-list'>
         {alert ? (
           <div className={`alerta ${alert.category}`}>{alert.msg}</div>
         ) : null}

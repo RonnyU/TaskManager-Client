@@ -13,16 +13,13 @@ const Bar = () => {
   return (
     <header className='app-header'>
       {user ? (
-        <p className='nombre-usuario'>
+        <p className='username'>
           Hi <span>{user.name}</span>
         </p>
       ) : null}
 
       <nav className='nav-principal'>
-        <button
-          className='btn btn-blank cerrar-sesion'
-          onClick={() => signOff()}
-        >
+        <button className='btn btn-blank sign-off' onClick={() => signOff()}>
           Sign Off
         </button>
       </nav>

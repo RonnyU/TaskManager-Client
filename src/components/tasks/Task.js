@@ -30,13 +30,13 @@ const Task = ({ task }) => {
     setCurrentState(task);
   };
   return (
-    <li className='tarea sombra'>
+    <li className='task sombra'>
       <p>{task.name}</p>
-      <div className='estado'>
+      <div className='status'>
         {task.status ? (
           <button
             type='button'
-            className='completo'
+            className='complete'
             onClick={() => changeStatus(task)}
           >
             Completed
@@ -44,7 +44,7 @@ const Task = ({ task }) => {
         ) : (
           <button
             type='button'
-            className='incompleto'
+            className='incomplete'
             onClick={() => changeStatus(task)}
           >
             Incomplete
@@ -61,7 +61,7 @@ const Task = ({ task }) => {
         </button>
         <button
           type='button'
-          className='btn btn-segundario'
+          className='btn btn-secundario'
           onClick={() => handleDelete(task._id)}
         >
           Delete

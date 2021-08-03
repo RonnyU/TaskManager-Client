@@ -9,7 +9,7 @@ const Sidebar = () => {
         TASK <span>Manager</span>
       </h1>
       <NewProject />
-      <div className='proyectos'>
+      <div className='projects'>
         <h2>My Projects</h2>
         <ProjectList />
       </div>

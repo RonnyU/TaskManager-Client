@@ -47,7 +47,7 @@ const NewProject = () => {
       </button>
 
       {form ? (
-        <form className='formulario-nuevo-proyecto' onSubmit={handleSubmit}>
+        <form className='new-project-form' onSubmit={handleSubmit}>
           <input
             type='text'
             className='input-text'
@@ -64,7 +64,7 @@ const NewProject = () => {
           />
         </form>
       ) : null}
-      {formerror ? <p className='mensaje error'>Name is required</p> : null}
+      {formerror ? <p className='message error'>Name is required</p> : null}
     </Fragment>
   );
 };

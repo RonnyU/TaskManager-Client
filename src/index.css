@@ -1,8 +1,16 @@
 :root {
-  --blanco: #ffffff;
+  /* --white: #ffffff;
   --gris1: #edf2f6;
   --gris2: #2f3848;
   --gris3: #1a202d;
+  --negro: #000000;
+  b8d0d4
+  ceece6
+  */
+  --white: #ffffff;
+  --green1: #d6e3e6;
+  --green2: #086375;
+  --green3: #064f5e;
   --negro: #000000;
   --headingFont: 'Raleway', sans-serif;
   --textFont: 'Roboto', sans-serif;
@@ -19,7 +27,7 @@ html {
 }
 body {
   min-height: 100%;
-  background-color: var(--gris1);
+  background-color: var(--green1);
   font-size: 16px;
   font-size: 1.6rem;
   font-family: var(--textFont);
@@ -31,7 +39,7 @@ h2 {
   font-weight: 900;
   margin: 0 0 4rem 0;
   text-align: center;
-  color: var(--gris2);
+  color: var(--green2);
 }
 h1 span {
   font-weight: 400;
@@ -49,7 +57,7 @@ ul {
 }
 a {
   text-decoration: none;
-  color: var(--gris2);
+  color: var(--green2);
 }
 
 /** BOTONES **/
@@ -67,21 +75,21 @@ a {
   cursor: pointer;
 }
 .btn-primario {
-  background-color: var(--gris2);
-  color: var(--blanco);
+  background-color: var(--green2);
+  color: var(--white);
 }
 .btn-primario:hover {
-  background: var(--gris3);
+  background: var(--green3);
 }
 .btn-secundario {
-  background-color: var(--gris1);
+  background-color: var(--green1);
 }
 .btn-block {
   display: block;
   width: 100%;
 }
 .btn-submit:hover {
-  background-color: var(--gris2);
+  background-color: var(--green2);
 }
 .btn-blank {
   margin: 0;
@@ -90,12 +98,12 @@ a {
   background-color: transparent;
 }
 
-.btn-eliminar {
-  background-color: var(--blanco);
+.btn-delete {
+  background-color: var(--white);
 }
 
-.cerrar-sesion {
-  color: var(--blanco);
+.sign-off {
+  color: var(--white);
   font-size: 18px;
 }
 
@@ -106,7 +114,7 @@ a {
   }
 
   aside {
-    background-color: var(--blanco);
+    background-color: var(--white);
     flex: 0 0 300px;
   }
   .seccion-principal {
@@ -119,45 +127,45 @@ aside {
   padding: 3rem;
 }
 
-.formulario-nuevo-proyecto {
+.new-project-form {
   margin-top: 6rem;
 }
-.formulario-nuevo-proyecto .input-text {
-  border-bottom: 1px solid var(--gris2);
+.new-project-form .input-text {
+  border-bottom: 1px solid var(--green2);
   border-radius: 0;
-  background-color: var(--gris1);
+  background-color: var(--green1);
 }
-.formulario-nuevo-proyecto .input-text::placeholder {
-  color: var(--gris2);
+.new-project-form .input-text::placeholder {
+  color: var(--green2);
 }
-.proyectos {
+.projects {
   margin-top: 10rem;
 }
-.listado-proyectos li {
+.project-list li {
   margin-bottom: 2rem;
 }
-.listado-proyectos li a {
+.project-list li a {
   font-size: 1.4rem;
-  color: var(--gris2);
+  color: var(--green2);
   line-height: 1.5;
   font-weight: 300;
 }
 .app-header {
   display: flex;
   justify-content: space-between;
-  background-color: var(--gris2);
+  background-color: var(--green2);
   padding: 4rem;
 }
-.nombre-usuario {
-  color: var(--blanco);
+.username {
+  color: var(--white);
   font-size: 2.2rem;
   margin: 0;
 }
-.nombre-usuario span {
+.username span {
   font-weight: 900;
 }
 .nav-principal a {
-  color: var(--blanco);
+  color: var(--white);
   text-decoration: none;
 }
 .nav-principal a:first-of-type {
@@ -166,7 +174,7 @@ aside {
 
 /** Formulario crear y editar tareas **/
 .formulario {
-  background-color: var(--gris3);
+  background-color: var(--green3);
   padding: 4rem;
 }
 .formulario form {
@@ -178,7 +186,7 @@ aside {
 }
 .contenedor-input label {
   margin-bottom: 1rem;
-  color: var(--blanco);
+  color: var(--white);
 }
 .input-text {
   padding: 1rem;
@@ -189,19 +197,19 @@ aside {
 }
 
 /** TAREAS LISTADO **/
-.contenedor-tareas {
+.task-container {
   padding: 4rem;
 }
 
-.listado-tareas {
+.task-list {
   max-width: 600px;
   margin: 0 auto;
 }
 
-.tarea {
+.task {
   display: flex;
   justify-content: space-between;
-  background-color: var(--blanco);
+  background-color: var(--white);
   padding: 0.5rem 2rem;
   align-items: center;
   margin-bottom: 1rem;
@@ -217,26 +225,26 @@ aside {
   -moz-box-shadow: 0px 6px 11px -8px rgba(0, 0, 0, 0.9);
   box-shadow: 0px 6px 11px -8px rgba(0, 0, 0, 0.9);
 }
-.tarea .acciones .btn:first-of-type {
+.task .acciones .btn:first-of-type {
   margin-right: 1rem;
 }
-.tarea p {
+.task p {
   font-size: 1.6rem;
   flex: 1;
   padding-right: 2rem;
 }
-.tarea .btn {
+.task .btn {
   padding: 0.8rem;
   font-size: 1.4rem;
   border-radius: 0;
   margin: 0;
 }
 
-.estado {
+.status {
   margin-right: 1rem;
 }
-.estado button,
-.mensaje {
+.status button,
+.message {
   font-weight: 900;
   font-family: var(--textFont);
   font-size: 1rem;
@@ -245,51 +253,51 @@ aside {
   cursor: pointer;
   border: none;
 }
-.mensaje {
+.message {
   text-align: center;
   font-size: 1.6rem;
   border-radius: 0;
 }
-.mensaje:hover {
+.message:hover {
   cursor: default;
 }
-.completo,
+.complete,
 .correcto {
   background-color: rgba(154, 252, 154, 0.3);
-  color: var(--gris3);
+  color: var(--green3);
 }
-.incompleto {
+.incomplete {
   background-color: rgba(255, 178, 178, 0.4);
-  color: var(--gris3);
+  color: var(--green3);
 }
 .error {
   max-width: 600px;
   margin: 2rem auto 0 auto;
   background-color: rgb(170, 0, 0);
-  color: var(--blanco);
+  color: var(--white);
 }
 
-.tarea-enter,
-.proyecto-enter {
+.task-enter,
+.project-enter {
   opacity: 0;
 }
-.tarea-enter-active,
-.proyecto-enter-active {
+.task-enter-active,
+.project-enter-active {
   opacity: 1;
   transition: opacity 200ms;
 }
-.tarea-exit,
-.proyecto-exit {
+.task-exit,
+.project-exit {
   opacity: 1;
 }
-.tarea-exit-active,
-.proyecto-exit-active {
+.task-exit-active,
+.project-exit-active {
   opacity: 0;
   transition: opacity 200ms;
 }
 
-.form-usuario {
-  background-color: var(--gris2);
+.user-form {
+  background-color: var(--green2);
   height: 100vh;
   min-height: 800px;
   display: flex;
@@ -301,7 +309,7 @@ aside {
   padding: 5rem 3rem;
   max-width: 500px;
   width: 95%;
-  background-color: var(--blanco);
+  background-color: var(--white);
   border-radius: 1rem;
 }
 
@@ -359,5 +367,5 @@ aside {
 }
 .alerta-error {
   background-color: rgb(230, 78, 78);
-  color: var(--blanco);
+  color: var(--white);
 }

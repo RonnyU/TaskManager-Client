@@ -27,9 +27,9 @@ const TaskList = () => {
   return (
     <Fragment>
       <h2>Project: {currentProject.name}</h2>
-      <ul className='listado-tareas'>
+      <ul className='task-list'>
         {projecttasks.length === 0 ? (
-          <li className='tarea'>
+          <li className='task'>
             <p>No task to display</p>
           </li>
         ) : (
@@ -39,7 +39,7 @@ const TaskList = () => {
                 key={task._id}
                 nodeRef={nodeRef}
                 timeout={200}
-                classNames='tarea'
+                classNames='task'
               >
                 <Task ref={nodeRef} task={task} />
               </CSSTransition>
@@ -47,7 +47,7 @@ const TaskList = () => {
           </TransitionGroup>
         )}
       </ul>
-      <button type='button' className='btn btn-eliminar' onClick={handleDelete}>
+      <button type='button' className='btn btn-delete' onClick={handleDelete}>
         Delete project &times;
       </button>
     </Fragment>

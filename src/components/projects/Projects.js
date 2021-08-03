@@ -21,7 +21,7 @@ const Projects = () => {
         <Bar />
         <main>
           <TaskForm />
-          <div className='contenedor-tareas'>
+          <div className='task-container'>
             <TaskList />
           </div>
         </main>
